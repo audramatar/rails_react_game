@@ -3,11 +3,11 @@ import PropTypes from "prop-types"
 
 class Character extends React.Component {
 
-  updateHP = () => {
+  attack = () => {
     $.ajax({
-      url: '/update_hp',
+      url: '/attack',
       type: 'POST',
-      data: {damage: 10, target_name: this.props.enemy.name},
+      data: {target_name: this.props.enemy.name},
       success: function(data){
         window.location.reload();
       },
@@ -20,7 +20,7 @@ class Character extends React.Component {
         {console.log(this.props.enemy)}
         <p>{this.props.enemy.name}</p>
         <p>HP: {this.props.enemy.hp}</p>
-        <button onClick={this.updateHP}> ATTACK </button>
+        <button onClick={this.attack}> ATTACK </button>
       </div>
     );
   }

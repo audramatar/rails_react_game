@@ -23,6 +23,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 gem 'react-rails'
 gem 'pry'
+gem 'pry-rails'
+gem 'pry-byebug'
 gem 'jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views

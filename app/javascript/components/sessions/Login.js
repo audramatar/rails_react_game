@@ -18,15 +18,13 @@ class Login extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(this.state.username);
-    // console.log(this.state.password);
     $.ajax({
       url: '/login',
       type: 'POST',
-      data: {username: username, password: password},
-      success: function(data){
-        // window.location.reload();
-      },
+      data: {username: this.state.username, password: this.state.password},
+      // success: function(data){
+      //   window.flash_messages.addMessage({ id: Date.now(), text: this.props.message, type: type });
+      // },
     });
   };
 
