@@ -1,0 +1,28 @@
+.box {
+  width: 75%;
+  position: relative;
+  padding: 20px;
+  overflow: hidden;
+  border: none;
+  font: normal 16px/1 Verdana, Geneva, sans-serif;
+  color: rgba(255,255,255,1);
+  text-align: center;
+  background: #0199d9;
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+.center {
+  margin: auto;
+}
+
+.character {
+  border: 1px solid black;
+  display: inline-block;
+  margin: auto;
+  width: 20%;
+  text-align: left;
+  position: relative;
+  padding-left: 10%;
+  margin: 0% 5% 0%;
+}

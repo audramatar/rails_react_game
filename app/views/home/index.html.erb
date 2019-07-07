@@ -1,0 +1,3 @@
+<%# binding.pry %>
+<%= react_component("home/Home", { data: ActiveSupport::JSON.decode(render(template: "home/index", formats: :json)),
+                                   rerender: true}) %>
