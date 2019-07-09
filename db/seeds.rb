@@ -13,11 +13,10 @@ stats = [
 ]
 
 stats.each do |stat|
-  enemy = Enemy.create()
-  StatSheet.create(name: stat[:name], hp: stat[:hp], attack: stat[:attack], ac: stat[:ac],
-              mana: stat[:mana], character_id: enemy[:id], character_type: 'Enemy')
+  enemy = Enemy.create(name: stat[:name])
+  StatSheet.create(hp: stat[:hp], attack: stat[:attack], ac: stat[:ac],
+              mp: stat[:mana], character_id: enemy[:id], character_type: 'Enemy')
 end
 
 player = Player.create(username: 'audra')
-StatSheet.create(name: 'Audra', hp: 10, attack: 5, ac: 16,
-                 mana: 50, character_id: player.id, character_type: 'Player')
+StatSheet.create(hp: 10, attack: 5, ac: 16, mp: 50, character_id: player.id, character_type: 'Player')

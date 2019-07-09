@@ -17,6 +17,7 @@ class Login extends React.Component {
   };
 
   handleSubmit = (event) => {
+    // window.flash_messages.addMessage({ id: 'id', text: 'Hello, fellas!', type: 'success' });
     event.preventDefault();
     $.ajax({
       url: '/login',

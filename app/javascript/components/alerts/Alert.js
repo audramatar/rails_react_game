@@ -1,4 +1,17 @@
+import React from "react"
+
 class Alert extends React.Component {
+
+  componentDidMount() {
+    this.timer = setTimeout(
+      this.props.onClose,
+      this.props.timeout
+    );
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
 
   alertClass (type) {
     let classes = {
@@ -17,9 +30,23 @@ class Alert extends React.Component {
     return(
       <div className={ alertClassName }>
         <button className='close'
-                data-dismiss='alert'> &times; </button>
+                onClick={ this.props.onClose }>
+          &times;
+        </button>
         { message.text }
       </div>
     );
   }
 }
+
+Alert.propTypes = {
+  onClose: React.PropTypes.func,
+  timeout: React.PropTypes.number,
+  message: React.PropTypes.object.isRequired
+};
+
+Alert.defaultProps = {
+  timeout: 3000
+};
+
+export default Alert
