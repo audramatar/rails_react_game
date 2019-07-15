@@ -1,14 +1,13 @@
 import React from "react"
-import PropTypes from "prop-types"
+import {Player} from "../../models/player"
 
-class LoggedInData extends React.Component {
+class LoggedInData extends React.Component < {current_player: Player}, {} > {
 
   render () {
     let loggedInGreeting;
 
     if (this.props.current_player){
-      let name =
-      loggedInGreeting = "Logged in as: " + this.props.current_player.username.toUpperCase()
+      loggedInGreeting = "Logged in as: " + this.props.current_player.name.toUpperCase()
       }
       else {
       loggedInGreeting = "Not Logged In"

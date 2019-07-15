@@ -1,7 +1,6 @@
 import React from "react"
-import PropTypes from "prop-types"
 
-class Character extends React.Component {
+class Character extends React.Component < {enemy: any}, {} >{
 
   attack = () => {
     $.ajax({
@@ -16,7 +15,7 @@ class Character extends React.Component {
 
   render () {
     return (
-      <div className='character'>
+      <div className='container'>
         {console.log(this.props.enemy)}
         <p>{this.props.enemy.name}</p>
         <p>HP: {this.props.enemy.hp}</p>
@@ -26,7 +25,4 @@ class Character extends React.Component {
   }
 }
 
-Character.propTypes = {
-  enemy: PropTypes.object
-};
 export default Character

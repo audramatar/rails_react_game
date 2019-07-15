@@ -1,23 +1,27 @@
 import React from "react"
+import { Container, Button } from 'react-bootstrap';
+import { CSSTransition } from 'react-transition-group';
+import update from 'react-addons-update';
+
 import Alert from './Alert.js'
+
 
 class FlashMessages extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = { messages: props.messages };
-
-    window.flash_messages = this;
   }
 
   addMessage(message) {
-    const messages = React.addons.update(this.state.messages, { $push: [message] });
+    const messages = update(this.state.messages, { $push: [message] });
+
     this.setState({ messages: messages });
   }
 
   removeMessage(message) {
     const index = this.state.messages.indexOf(message);
-    const messages = React.addons.update(this.state.messages, { $splice: [[index, 1]] });
+    const messages = update(this.state.messages, { $splice: [[index, 1]] });
     this.setState({ messages: messages });
   }
 
@@ -28,18 +32,24 @@ class FlashMessages extends React.Component {
     );
 
     return(
-      <React.addons.CSSTransitionGroup
-        transitionName='alerts'
-        transitionEnter={false}
-        transitionLeaveTimeout={500}>
-        { alerts }
-      </React.addons.CSSTransitionGroup>
+      <Container style={{ paddingTop: '2rem' }}>
+        {(
+          <div>{alerts}</div>
+        )}
+        <CSSTransition
+          transitionName='alerts'
+          transitionEnter={false}
+          // { alerts }
+
+          timeout={300}
+          classNames="alert"
+          unmountOnExit
+        >
+          <button></button>
+        </CSSTransition>
+      </Container>
     );
   }
 }
-
-FlashMessages.propTypes = {
-  messages: React.PropTypes.array.isRequired
-};
 
 export default FlashMessages

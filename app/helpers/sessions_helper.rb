@@ -6,7 +6,7 @@ module SessionsHelper
 
   # Returns the current logged-in user (if any).
   def current_player
-    if session[:user_id]
+    if session[:player_id]
       @current_player ||= Player.find_by(id: session[:player_id])
     end
   end
